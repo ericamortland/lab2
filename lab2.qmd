@@ -13,7 +13,6 @@ Quarto enables you to weave together content and executable code into a finished
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-1 + 1
 ```
 
 You can add options to executable code like this
@@ -25,17 +24,16 @@ You can add options to executable code like this
 
 The `echo: false` option disables the printing of code (only output is displayed).
 
-```{r}
-install.packages("dplyr")
-```
 
 ```{r}
 library(dplyr)
 ```
 
 ```{r}
-glimpse(tree_dat)
+install.packages("dplyr")
 ```
+
+#1
 ```{r}
 tree_dat %>%
   filter(standID == 1)%>%
@@ -84,7 +82,7 @@ tree_dat %>%
 ```{r}
 top_trees <- tree_dat %>%
   filter(standID == 5, year == 2007) %>%
-  arrange(desc(rad_ib))%>%
+  arrange(desc(rad_ib_mm))%>%
   slice_head(n = 3)
 top_trees$treeID
 ```
@@ -93,9 +91,9 @@ top_trees$treeID
 library(dplyr)
 
 tree_dat %>%
-  select(treeID, stand, year, rad_ib)%>%
+  select(treeID, stand, year, rad_ib_mm)%>%
   filter(stand == 3, year == 2007 )%>%
-  slice_min(order_by = rad_ib, n = 3)
+  slice_min(order_by = rad_ib_mm, n = 3)
 ```
 #10
 ```{r}
@@ -121,7 +119,6 @@ tree_dat_selected <- tree_dat %>%
 glimpse(tree_dat_selected)
 ```
 #13
-```{r}
 tree_dat <- tree_dat %>%
   rename(
     rad_ib_mm = rad_ib,
@@ -132,6 +129,7 @@ glimpse(tree_dat)
 ```
 
 #14
+
 ```{r}
 tree_dat <- tree_dat %>%
   mutate(
@@ -240,3 +238,8 @@ slowest_growth <- growth_summary %>%
 fastest_growth
 slowest_growth
 ```
+![LALA Tree](images/lala_tree_image.jpg)
+![THOC Tree](images/thuja-occidentalis.jpg)
+![QURU Tree]images/Quercus-rubra.jpg)
+
+
