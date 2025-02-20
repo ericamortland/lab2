@@ -4,33 +4,8 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-
 ```{r}
 library(dplyr)
-```
-
-```{r}
-install.packages("dplyr")
 ```
 
 #1
@@ -119,6 +94,7 @@ tree_dat_selected <- tree_dat %>%
 glimpse(tree_dat_selected)
 ```
 #13
+```{r}
 tree_dat <- tree_dat %>%
   rename(
     rad_ib_mm = rad_ib,
@@ -151,6 +127,7 @@ tree_dat <- tree_dat %>%
 tree_dat %>%
   count(established)
 ```
+
 #16
 ```{r}
 tree_dat <- tree_dat %>%
@@ -178,6 +155,7 @@ tree_dat %>%
     sd_DBH_cm = sd(DBH_cm, na.rm = TRUE)
   )
 ```
+
 The average tree size that are the smallest are ABBA (12.02 cm), LALA (12.84 cm), and QURU (13.92 cm).The largest trees on average are PIST (25.38 cm), THOC (21.56 cm), and POGR (22.45 cm).LALA and ABBA had the least variation (in standard deviation)meaning most trees are close to the average size, while PIRE, PIST and POTR have the most variation in sizing.
 #18
 ```{r}
@@ -201,6 +179,7 @@ year_summary <- tree_dat %>%
 
 year_summary
 ```
+
 #20
 ```{r}
 stands_with_largest_years <- tree_dat %>%
@@ -238,8 +217,8 @@ slowest_growth <- growth_summary %>%
 fastest_growth
 slowest_growth
 ```
-![LALA Tree](images/lala_tree_image.jpg)
-![THOC Tree](images/thuja-occidentalis.jpg)
-![QURU Tree]images/Quercus-rubra.jpg)
+![PIRE Tree](images/PIRE.jpg)
+![POTR Tree](images/POTR.jpg)
+![PIBA Tree](images/PIBA.jpg)
 
 
