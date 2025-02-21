@@ -1,11 +1,12 @@
 ---
-title: "lab2exercises"
+title: "Lab 2"
 format: html
 editor: visual
 ---
 
 ```{r}
 library(dplyr)
+tree_dat = read.csv("data/tree_dat.csv")
 ```
 
 #1
@@ -18,7 +19,6 @@ tree_dat %>%
 ```{r}
 tree_count1 <- tree_dat %>%
   filter(standID == 1)
-print(tree_count1)
 ```
 #3
 ```{r}
@@ -57,19 +57,20 @@ tree_dat %>%
 ```{r}
 top_trees <- tree_dat %>%
   filter(standID == 5, year == 2007) %>%
-  arrange(desc(rad_ib_mm))%>%
+  arrange(desc(rad_ib))%>%
   slice_head(n = 3)
 top_trees$treeID
 ```
 #9!!
-```{r}
-library(dplyr)
 
+```{r}
 tree_dat %>%
-  select(treeID, stand, year, rad_ib_mm)%>%
-  filter(stand == 3, year == 2007 )%>%
-  slice_min(order_by = rad_ib_mm, n = 3)
+  select(treeID, standID, year, rad_ib)%>%
+  filter(standID == 3, year == 2007)%>%
+  slice_min(order_by = rad_ib, n = 3)
 ```
+
+
 #10
 ```{r}
 tree_dat_modified <- tree_dat %>%
@@ -218,7 +219,5 @@ fastest_growth
 slowest_growth
 ```
 ![PIRE Tree](images/PIRE.jpg)
-![POTR Tree](images/POTR.jpg)
-![PIBA Tree](images/PIBA.jpg)
-
+The Red Pine, PIRE Tree
 
